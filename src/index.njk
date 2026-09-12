@@ -1,0 +1,75 @@
+---
+title: Boston Dialogue Foundation
+layout: base.njk
+permalink: /index.html
+---
+<div class="hero">
+  <img class="dove" src="/assets/images/logo.png" alt="">
+  <p class="since">{{ home.kicker }}</p>
+  <h1>{{ home.title }}</h1>
+  <p>{{ home.intro }}</p>
+  <div class="cta-row">
+    <a class="btn btn-gold" href="/events/">See Our Events</a>
+    <a class="btn btn-outline" href="/about/">Learn More</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="about">
+    <div class="section-head">
+      <p class="eyebrow">Who we are</p>
+      <h2>Mission, Vision &amp; Goals</h2>
+    </div>
+    <div class="three-col">
+      <div class="card">
+        <p class="tag">Mission</p>
+        <h3>Why we exist</h3>
+        <p>{{ home.mission }}</p>
+      </div>
+      <div class="card">
+        <p class="tag">Vision</p>
+        <h3>What we're building toward</h3>
+        <p>{{ home.vision }}</p>
+      </div>
+      <div class="card">
+        <p class="tag">Goals</p>
+        <h3>How we get there</h3>
+        <p>{{ home.goalsTeaser }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus-areas">
+    <div class="section-head">
+      <p class="eyebrow">Our work</p>
+      <h2>Six Areas of Focus</h2>
+      <p>Every program we run falls under one of these six categories.</p>
+    </div>
+    <div class="tiles">
+      {% for area in settings.focusAreas %}
+      <div class="tile"><h4>{{ area.name }}</h4></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="recent-events">
+    <div class="section-head">
+      <p class="eyebrow">From our community</p>
+      <h2>Recent Events</h2>
+    </div>
+    <div class="events-grid">
+      {% for e in collections.homeEvents %}
+      <a class="event-card" href="{{ e.url }}" style="text-decoration:none;color:inherit;">
+        <div class="photo">{% if e.data.image %}<img src="{{ e.data.image }}" alt="{{ e.data.title }}">{% else %}<span class="none">Photo not available</span>{% endif %}</div>
+        <div class="body">
+          <p class="date">{{ e.data.display_date or (e.data.date | readableDate) }}</p>
+          <h3>{{ e.data.title }}</h3>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <div style="text-align:center; margin-top:34px;">
+      <a class="btn btn-gold" style="background:var(--navy); color:#fff;" href="/events/">View All Past Events →</a>
+    </div>
+  </section>
+</div>

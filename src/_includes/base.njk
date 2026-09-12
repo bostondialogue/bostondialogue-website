@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}{% if title != settings.orgName %} — {{ settings.orgName }}{% endif %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="bar">
+    <a class="brand" href="/">
+      <img src="/assets/images/logo.png" alt="{{ settings.orgName }} logo">
+      <span class="name">Boston Dialogue<br>Foundation<small>Since {{ settings.since }}</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/events/">Events</a>
+      <a href="/contact/">Contact</a>
+      <a class="donate" href="{{ settings.donateUrl }}" target="_blank" rel="noopener">Donate</a>
+    </nav>
+  </div>
+</header>
+
+{{ content | safe }}
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div>
+      <h5>{{ settings.orgName }}</h5>
+      <p>{{ settings.footerBlurb }}</p>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/events/">Events</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="{{ settings.donateUrl }}" target="_blank" rel="noopener">Donate</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></li>
+        <li><a href="tel:{{ settings.phoneHref }}">{{ settings.phone }}</a></li>
+        <li><a href="{{ settings.facebookUrl }}" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap bottom">© {{ settings.since }}–{{ currentYear }} {{ settings.orgName }}. {{ settings.address }}.</div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

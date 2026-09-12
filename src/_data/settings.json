@@ -1,0 +1,21 @@
+{
+  "orgName": "Boston Dialogue Foundation",
+  "since": "2000",
+  "footerBlurb": "Networking people from many backgrounds across the Greater Boston area since 2000 — through education, dialogue, humanitarian aid, advocacy, and community service.",
+  "address": "500 Revere St, Revere, MA 02151",
+  "phone": "+1 (857) 335-7975",
+  "phoneHref": "+18573357975",
+  "email": "info@bostondialogue.org",
+  "facebookUrl": "https://www.facebook.com/",
+  "twitterUrl": "https://twitter.com/",
+  "donateUrl": "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=H9Q5GKMR5B7Q6",
+  "mapQuery": "500 Revere St, Revere, MA 02151",
+  "focusAreas": [
+    { "name": "Educational Service" },
+    { "name": "Community Service" },
+    { "name": "Interfaith" },
+    { "name": "Religious Service" },
+    { "name": "Humanitarian Relief" },
+    { "name": "Advocacy" }
+  ]
+}

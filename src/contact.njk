@@ -1,0 +1,35 @@
+---
+title: Contact — Boston Dialogue Foundation
+layout: base.njk
+permalink: /contact/index.html
+---
+<div class="page-hero">
+  <h1>Contact Us</h1>
+  <p>We'd love to hear from you</p>
+</div>
+
+<div class="wrap">
+  <section>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <dl>
+          <dt>Address</dt>
+          <dd>{{ settings.address }}</dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:{{ settings.phoneHref }}">{{ settings.phone }}</a></dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></dd>
+          <dt>Follow Us</dt>
+          <dd><a href="{{ settings.facebookUrl }}" target="_blank" rel="noopener">Facebook</a> &nbsp;|&nbsp; <a href="{{ settings.twitterUrl }}" target="_blank" rel="noopener">X (Twitter)</a></dd>
+        </dl>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q={{ settings.mapQuery | urlencode }}&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map to {{ settings.address }}"></iframe>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,78 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "events"
+    label: "Events"
+    folder: "src/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD", hint: "Used for sorting and to decide Upcoming vs Past. If you only know the year, pick Jan 1 of that year and use Display Date below for what visitors see." }
+      - { label: "Display Date", name: "display_date", widget: "string", hint: "Exactly what visitors see, e.g. \"June 24, 2024\" or just \"2021\"." }
+      - { label: "Photo", name: "image", widget: "image", required: false }
+      - { label: "Show on homepage", name: "featured", widget: "boolean", default: false, hint: "Homepage shows up to 3 featured events; if fewer than 3 are featured it fills in with the most recent." }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "settings"
+        label: "Contact & Organization Info"
+        file: "src/_data/settings.json"
+        fields:
+          - { label: "Organization name", name: "orgName", widget: "string" }
+          - { label: "Founded year", name: "since", widget: "string" }
+          - { label: "Footer description", name: "footerBlurb", widget: "text" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Phone (display)", name: "phone", widget: "string" }
+          - { label: "Phone (tel: link, digits only with +)", name: "phoneHref", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Facebook URL", name: "facebookUrl", widget: "string" }
+          - { label: "Twitter/X URL", name: "twitterUrl", widget: "string" }
+          - { label: "Donate URL", name: "donateUrl", widget: "string" }
+          - { label: "Map search query", name: "mapQuery", widget: "string" }
+          - label: "Six Areas of Focus"
+            name: "focusAreas"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "home"
+        label: "Home Page Content"
+        file: "src/_data/home.json"
+        fields:
+          - { label: "Hero kicker", name: "kicker", widget: "string" }
+          - { label: "Hero headline", name: "title", widget: "string" }
+          - { label: "Hero intro paragraph", name: "intro", widget: "text" }
+          - { label: "Mission card text", name: "mission", widget: "text" }
+          - { label: "Vision card text", name: "vision", widget: "text" }
+          - { label: "Goals card text", name: "goalsTeaser", widget: "text" }
+
+  - name: "about"
+    label: "About Page"
+    files:
+      - name: "about"
+        label: "About Page Content"
+        file: "src/_data/about.json"
+        fields:
+          - label: "Mission paragraphs"
+            name: "mission"
+            widget: "list"
+            field: { label: "Paragraph", name: "text", widget: "text" }
+          - label: "Vision paragraphs"
+            name: "vision"
+            widget: "list"
+            field: { label: "Paragraph", name: "text", widget: "text" }
+          - label: "Goals"
+            name: "goals"
+            widget: "list"
+            field: { label: "Goal", name: "text", widget: "text" }

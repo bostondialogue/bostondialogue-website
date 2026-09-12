@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<div class="page-hero">
+  <h1>{{ title }}</h1>
+  <p>{{ display_date or (date | readableDate) }}</p>
+</div>
+<div class="wrap">
+  <section>
+    <div style="max-width:720px;margin:0 auto;">
+      {% if image %}<img src="{{ image }}" alt="{{ title }}" style="border-radius:6px;margin-bottom:24px;width:100%;">{% endif %}
+      {{ content | safe }}
+      <p style="margin-top:28px;"><a href="/events/">&larr; Back to all events</a></p>
+    </div>
+  </section>
+</div>

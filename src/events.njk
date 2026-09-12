@@ -1,0 +1,54 @@
+---
+title: Events — Boston Dialogue Foundation
+layout: base.njk
+permalink: /events/index.html
+---
+<div class="page-hero">
+  <h1>Events</h1>
+  <p>Seminars, celebrations, and community gatherings across Greater Boston</p>
+</div>
+
+<div class="wrap">
+  <section>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+      <button class="tab-btn" data-tab="past">Past Events</button>
+    </div>
+
+    <div id="upcoming" class="tab-panel active">
+      {% if collections.upcomingEvents.length %}
+      <div class="events-grid">
+        {% for e in collections.upcomingEvents %}
+        <a class="event-card" href="{{ e.url }}" style="text-decoration:none;color:inherit;">
+          <div class="photo">{% if e.data.image %}<img src="{{ e.data.image }}" alt="{{ e.data.title }}">{% else %}<span class="none">Photo not available</span>{% endif %}</div>
+          <div class="body">
+            <p class="date">{{ e.data.display_date or (e.data.date | readableDate) }}</p>
+            <h3>{{ e.data.title }}</h3>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="empty-state">
+        <h3>No events currently scheduled</h3>
+        <p>Check back soon, or follow us on Facebook for the latest updates on our next gathering.</p>
+      </div>
+      {% endif %}
+    </div>
+
+    <div id="past" class="tab-panel">
+      <div class="events-grid">
+        {% for e in collections.pastEvents %}
+        <a class="event-card" href="{{ e.url }}" style="text-decoration:none;color:inherit;">
+          <div class="photo">{% if e.data.image %}<img src="{{ e.data.image }}" alt="{{ e.data.title }}">{% else %}<span class="none">Photo not available</span>{% endif %}</div>
+          <div class="body">
+            <p class="date">{{ e.data.display_date or (e.data.date | readableDate) }}</p>
+            <h3>{{ e.data.title }}</h3>
+            <div class="desc">{{ e.templateContent | safe }}</div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
